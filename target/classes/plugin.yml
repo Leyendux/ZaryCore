@@ -1,0 +1,7 @@
+name: ZaryCore
+main: leyendux.github.io.zarycore.Main
+version: 1.0-SNAPSHOT
+
+description: BungeeCord core for my own server
+author: Leyendux7k
+website: github.com/Leyendux
