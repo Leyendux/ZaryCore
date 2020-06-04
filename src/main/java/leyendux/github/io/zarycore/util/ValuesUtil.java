@@ -2,7 +2,8 @@ package leyendux.github.io.zarycore.util;
 
 public enum ValuesUtil {
     MAINTENANCE(true),
-    MAINTENANCE_KICKMSG("§cServer hasn't been released yet, join our discord for updates!");
+    MAINTENANCE_KICKMSG("§cServer hasn't been released yet, join our discord for updates!"),
+    PREFIX("§3§lZaryNetwork §8» ");
 
     private boolean enabled;
     private String message;

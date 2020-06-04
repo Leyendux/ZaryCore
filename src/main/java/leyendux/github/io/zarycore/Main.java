@@ -1,6 +1,7 @@
 package leyendux.github.io.zarycore;
 
 import leyendux.github.io.zarycore.commands.MaintenanceCMD;
+import leyendux.github.io.zarycore.commands.SetRankCMD;
 import leyendux.github.io.zarycore.commands.StaffChatCMD;
 import leyendux.github.io.zarycore.listeners.ChatListener;
 import leyendux.github.io.zarycore.listeners.PostLoginListener;
@@ -34,6 +35,7 @@ public class Main extends Plugin {
 
         registerCommands();
         registerListeners();
+        registerChannels();
     }
 
     @Override
@@ -57,11 +59,16 @@ public class Main extends Plugin {
     private void registerCommands() {
         getProxy().getPluginManager().registerCommand(this, new MaintenanceCMD());
         getProxy().getPluginManager().registerCommand(this, new StaffChatCMD());
+        getProxy().getPluginManager().registerCommand(this, new SetRankCMD());
     }
 
     private void registerListeners() {
         getProxy().getPluginManager().registerListener(this, new ProxyPingListener());
         getProxy().getPluginManager().registerListener(this, new PostLoginListener());
         getProxy().getPluginManager().registerListener(this, new ChatListener());
+    }
+
+    private void registerChannels() {
+        getProxy().registerChannel("ZaryCore");
     }
 }

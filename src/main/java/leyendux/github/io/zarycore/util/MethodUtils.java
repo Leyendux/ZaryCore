@@ -4,6 +4,7 @@ import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.cacheddata.CachedMetaData;
 import net.luckperms.api.context.ImmutableContextSet;
+import net.luckperms.api.model.group.Group;
 import net.luckperms.api.model.user.User;
 import net.luckperms.api.query.QueryOptions;
 import net.md_5.bungee.api.ProxyServer;
@@ -49,7 +50,6 @@ public class MethodUtils {
     public static String getPrefix(ProxiedPlayer proxiedPlayer) {
         LuckPerms api = LuckPermsProvider.get();
 
-        ImmutableContextSet contextSet = api.getContextManager().getContext(proxiedPlayer);
         QueryOptions queryOptions = api.getContextManager().getQueryOptions(proxiedPlayer);
 
         User user = api.getUserManager().getUser(proxiedPlayer.getUniqueId());
