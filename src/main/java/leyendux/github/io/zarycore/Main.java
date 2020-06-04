@@ -1,6 +1,8 @@
 package leyendux.github.io.zarycore;
 
 import leyendux.github.io.zarycore.commands.MaintenanceCMD;
+import leyendux.github.io.zarycore.commands.StaffChatCMD;
+import leyendux.github.io.zarycore.listeners.ChatListener;
 import leyendux.github.io.zarycore.listeners.PostLoginListener;
 import leyendux.github.io.zarycore.listeners.ProxyPingListener;
 import leyendux.github.io.zarycore.util.FileUtil;
@@ -8,7 +10,6 @@ import leyendux.github.io.zarycore.util.ValuesUtil;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;
 
-import java.io.File;
 import java.io.IOException;
 
 public class Main extends Plugin {
@@ -35,6 +36,12 @@ public class Main extends Plugin {
         registerListeners();
     }
 
+    @Override
+    public void onDisable() {
+        super.onDisable();
+        instance = null;
+    }
+
     public static Main getInstance() {
         return instance;
     }
@@ -49,10 +56,12 @@ public class Main extends Plugin {
 
     private void registerCommands() {
         getProxy().getPluginManager().registerCommand(this, new MaintenanceCMD());
+        getProxy().getPluginManager().registerCommand(this, new StaffChatCMD());
     }
 
     private void registerListeners() {
         getProxy().getPluginManager().registerListener(this, new ProxyPingListener());
         getProxy().getPluginManager().registerListener(this, new PostLoginListener());
+        getProxy().getPluginManager().registerListener(this, new ChatListener());
     }
 }
